@@ -36,6 +36,14 @@ const shortcuts = {
 		raw: rawShortcut.primaryShift( 'd' ),
 		display: displayShortcut.primaryShift( 'd' ),
 	},
+	insertBefore: {
+		raw: rawShortcut.primaryAlt( 'b' ),
+		display: displayShortcut.primaryShift( 'b' ),
+	},
+	insertAfter: {
+		raw: rawShortcut.primaryAlt( 'a' ),
+		display: displayShortcut.primaryAlt( 'a' ),
+	},
 };
 
 export class BlockSettingsMenu extends Component {
@@ -86,6 +94,10 @@ export class BlockSettingsMenu extends Component {
 						// Prevents bookmark all Tabs shortcut in Chrome when devtools are closed.
 						// Prevents reposition Chrome devtools pane shortcut when devtools are open.
 						[ shortcuts.duplicate.raw ]: flow( preventDefault, onDuplicate ),
+						// There are no known clashes for these shortcuts, but prevent obscure unknown
+						// behaviour using preventDefault.
+						[ shortcuts.insertBefore.raw ]: flow( preventDefault, onInsertBefore ),
+						[ shortcuts.insertAfter.raw ]: flow( preventDefault, onInsertAfter ),
 					} }
 				/>
 				<Dropdown
@@ -144,6 +156,7 @@ export class BlockSettingsMenu extends Component {
 								className="editor-block-settings-menu__control"
 								onClick={ onInsertBefore }
 								icon="insert-before"
+								shortcut={ shortcuts.insertBefore.display }
 							>
 								{ __( 'Insert Before' ) }
 							</MenuItem>
@@ -151,6 +164,7 @@ export class BlockSettingsMenu extends Component {
 								className="editor-block-settings-menu__control"
 								onClick={ onInsertAfter }
 								icon="insert-after"
+								shortcut={ shortcuts.insertAfter.display }
 							>
 								{ __( 'Insert After' ) }
 							</MenuItem>
