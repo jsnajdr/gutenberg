@@ -94,9 +94,10 @@ export class BlockSettingsMenu extends Component {
 						// Prevents bookmark all Tabs shortcut in Chrome when devtools are closed.
 						// Prevents reposition Chrome devtools pane shortcut when devtools are open.
 						[ shortcuts.duplicate.raw ]: flow( preventDefault, onDuplicate ),
-						// There are no known clashes for these shortcuts, but prevent obscure unknown
-						// behaviour using preventDefault.
+						// Prevent 'view recently closed tabs' in Opera using preventDefault.
 						[ shortcuts.insertBefore.raw ]: flow( preventDefault, onInsertBefore ),
+						// There are no known clashes for this shortcut, but prevent obscure unknown
+						// behaviour using preventDefault.
 						[ shortcuts.insertAfter.raw ]: flow( preventDefault, onInsertAfter ),
 					} }
 				/>
