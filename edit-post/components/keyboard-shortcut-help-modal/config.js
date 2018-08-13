@@ -9,6 +9,8 @@ const {
 	primary,
 	// Shift+Cmd+<key> on a mac, Ctrl+Shift+<key> elsewhere
 	primaryShift,
+	// Option+Cmd+<key> on a mac, Ctrl+Alt+<key> elsewhere
+	primaryAlt,
 	// Shift+Alt+Cmd+<key> on a mac, Ctrl+Shift+Akt+<key> elsewhere
 	secondary,
 	// Ctrl+Alt+<key> on a mac, Shift+Alt+<key> elsewhere
@@ -84,6 +86,14 @@ const blockShortcuts = {
 		{
 			keyCombination: primaryShift( 'd' ),
 			description: __( 'Duplicate the selected block(s).' ),
+		},
+		{
+			keyCombination: primaryAlt( 't' ),
+			description: __( 'Insert a new block before the selected block(s).' ),
+		},
+		{
+			keyCombination: primaryAlt( 'y' ),
+			description: __( 'Insert a new block after the selected block(s).' ),
 		},
 		{
 			keyCombination: '/',
